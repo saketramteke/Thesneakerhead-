@@ -4,254 +4,29 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Stride — Modern Sneakers</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <meta name="description" content="Stride — premium sneakers designed for comfort and style. Shop new drops, limited editions and best-sellers." />
   <style>
-    :root{
-      --accent:#111827; /* slate-900 */
-      --muted:#6b7280;  /* gray-500 */
-      --accent-2:#ef4444; /* red-500 */
-      --glass: rgba(255,255,255,0.06);
-      --card: #ffffff;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,'Helvetica Neue',Arial;color:#0f172a}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:1200px;margin:0 auto;padding:0 20px}
-
-    /* NAV */
-    header{position:sticky;top:0;backdrop-filter: blur(6px);background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.3));box-shadow:0 2px 8px rgba(15,23,42,0.04);z-index:50}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .brand{font-weight:800;letter-spacing:-0.5px}
-    nav ul{display:flex;gap:18px;align-items:center;margin:0;padding:0;list-style:none}
-    .btn{padding:10px 14px;border-radius:10px;font-weight:600}
-    .btn-primary{background:var(--accent);color:#fff}
-    .btn-outline{border:1px solid #e5e7eb;padding:8px 12px;border-radius:10px}
-
-    /* HERO */
-    .hero{display:grid;grid-template-columns:1fr 480px;gap:36px;align-items:center;padding:56px 0}
-    .hero-copy h1{font-size:42px;margin:0 0 12px}
-    .hero-copy p{color:var(--muted);margin:0 0 20px}
-    .hero-cta{display:flex;gap:12px}
-    .hero-art{position:relative;border-radius:18px;overflow:hidden;box-shadow:0 20px 40px rgba(2,6,23,0.12)}
-    .hero-art img{width:100%;height:100%;object-fit:cover;display:block}
-
-    /* Features */
-    .features{display:flex;gap:18px;margin:36px 0}
-    .feature{flex:1;background:#fff;border-radius:12px;padding:16px;box-shadow:0 6px 18px rgba(2,6,23,0.06);display:flex;gap:12px;align-items:center}
-    .feature h4{margin:0;font-size:14px}
-    .feature p{margin:0;color:var(--muted);font-size:13px}
-
-    /* Products grid */
-    .products{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:36px 0}
-    .card{background:#fff;border-radius:14px;padding:14px;box-shadow:0 10px 30px rgba(2,6,23,0.06);display:flex;flex-direction:column}
-    .card img{width:100%;border-radius:10px;object-fit:cover}
-    .card h3{margin:12px 0 6px;font-size:16px}
-    .price-row{display:flex;justify-content:space-between;align-items:center}
-    .price{font-weight:700}
-
-    /* CTA / Newsletter */
-    .newsletter{background:linear-gradient(90deg, #111827, #0f172a);color:white;padding:28px;border-radius:14px;display:flex;justify-content:space-between;align-items:center;margin:36px 0}
-    .newsletter form{display:flex;gap:10px}
-    .newsletter input{padding:12px;border-radius:10px;border:0;min-width:260px}
-
-    footer{padding:36px 0;color:var(--muted)}
-
-    /* MOBILE */
-    @media (max-width:980px){
-      .hero{grid-template-columns:1fr;gap:18px;padding:36px 0}
-      .products{grid-template-columns:repeat(2,1fr)}
-      .features{flex-direction:column}
-    }
-    @media (max-width:640px){
-      .nav ul{display:none}
-      .mobile-toggle{display:block}
-      .products{grid-template-columns:1fr}
-      .hero-copy h1{font-size:30px}
-      .newsletter{flex-direction:column;align-items:flex-start}
-    }
-
-    /* small niceties */
-    .badge{background:var(--accent-2);color:#fff;padding:6px 10px;border-radius:999px;font-weight:700;font-size:12px}
-    .mobile-toggle{display:none;border:0;background:transparent}
-    .nav-right{display:flex;gap:12px;align-items:center}
-    .price-old{color:var(--muted);text-decoration:line-through;font-weight:600}
+    body{margin:0;font-family:Inter,system-ui;background:#f9fafb;color:#111827}
+    .container{max-width:800px;margin:0 auto;padding:20px}
+    a{color:#111827;text-decoration:none;font-weight:600}
+    .btn{display:inline-block;padding:12px 18px;border-radius:10px;font-weight:600;border:none;cursor:pointer}
+    .btn-primary{background:#111827;color:white}
+    header{padding:14px;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,0.08);position:sticky;top:0;z-index:50}
+    nav{display:flex;gap:16px;align-items:center;justify-content:center}
   </style>
 </head>
 <body>
   <header>
-    <div class="container nav">
-      <div style="display:flex;align-items:center;gap:14px">
-        <div class="brand">Stride</div>
-        <div style="color:var(--muted);font-size:13px">Premium Sneakers</div>
-      </div>
-
-      <nav>
-        <ul>
-          <li><a href="#features">Why Stride</a></li>
-          <li><a href="#products">Collection</a></li>
-          <li><a href="#story">Our Story</a></li>
-        </ul>
-      </nav>
-
-      <div class="nav-right">
-        <button class="btn btn-outline">Sign in</button>
-        <button class="btn btn-primary">Shop Now</button>
-        <button class="mobile-toggle" aria-label="open menu" id="menuBtn">☰</button>
-      </div>
-    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="checkout.html">Checkout</a>
+    </nav>
   </header>
 
   <main class="container">
-    <section class="hero">
-      <div class="hero-copy">
-        <div class="badge">New Drop</div>
-        <h1>Move Faster. Feel Lighter.</h1>
-        <p>Engineered comfort meets street-ready style. Explore our new collection of lightweight, high-performance sneakers.</p>
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="#products">Shop Collection</a>
-          <a class="btn btn-outline" href="#story">Learn More</a>
-        </div>
-
-        <div id="features" class="features">
-          <div class="feature">
-            <div style="font-weight:800;font-size:20px">⓵</div>
-            <div>
-              <h4>Responsive Cushioning</h4>
-              <p>Adaptive foam for all-day comfort and return energy.</p>
-            </div>
-          </div>
-          <div class="feature">
-            <div style="font-weight:800;font-size:20px">⓶</div>
-            <div>
-              <h4>Lightweight Knit</h4>
-              <p>Breathable knit upper keeps you cool on the move.</p>
-            </div>
-          </div>
-          <div class="feature">
-            <div style="font-weight:800;font-size:20px">⓷</div>
-            <div>
-              <h4>Street-Ready Grip</h4>
-              <p>Engineered traction for wet and dry surfaces.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-art" aria-hidden="true">
-        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Stylish sneaker on white background">
-      </div>
-    </section>
-
-    <section>
-      <h2 style="margin:6px 0 12px">Featured Collection</h2>
-      <div id="products" class="products">
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1526178615427-0d6e4e0acb9b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="sneaker 1">
-          <h3>Stride Runner — Phantom</h3>
-          <div class="price-row">
-            <div>
-              <div class="price">₹6,499</div>
-              <div class="price-old">₹7,999</div>
-            </div>
-            <button class="btn btn-outline" onclick="addToCart('Stride Runner — Phantom',6499)">Add</button>
-          </div>
-        </article>
-
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1519741491675-8e5c4c7f4d3a?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="sneaker 2">
-          <h3>Commuter Low — Olive</h3>
-          <div class="price-row">
-            <div>
-              <div class="price">₹5,299</div>
-            </div>
-            <button class="btn btn-outline" onclick="addToCart('Commuter Low — Olive',5299)">Add</button>
-          </div>
-        </article>
-
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1528701800484-5e9a493d5bfa?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="sneaker 3">
-          <h3>City Trainer — White</h3>
-          <div class="price-row">
-            <div>
-              <div class="price">₹4,799</div>
-            </div>
-            <button class="btn btn-outline" onclick="addToCart('City Trainer — White',4799)">Add</button>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="newsletter">
-      <div>
-        <h3 style="margin:0 0 6px">Join the Stride Club</h3>
-        <p style="margin:0;color:rgba(255,255,255,0.75)">Get 10% off your first order and early access to drops.</p>
-      </div>
-      <form onsubmit="subscribe(event)">
-        <input type="email" id="email" placeholder="Enter your email" required />
-        <button class="btn btn-primary" type="submit">Subscribe</button>
-      </form>
-    </section>
-
-    <section id="story" style="margin-bottom:48px">
-      <h2>Our Story</h2>
-      <p style="color:var(--muted)">Stride began with a simple idea: make footwear that blends high-performance materials with a clean aesthetic. We test every pair for comfort, durability, and everyday style.</p>
-    </section>
+    <h1>Welcome to Stride Sneakers</h1>
+    <p>Discover premium sneakers designed for comfort and style.</p>
+    <a href="products.html" class="btn btn-primary">Shop Now</a>
   </main>
-
-  <footer class="container">
-    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
-      <div>
-        <strong>Stride</strong>
-        <div style="color:var(--muted);font-size:13px">© <span id="year"></span> All rights reserved.</div>
-      </div>
-      <div style="color:var(--muted);font-size:13px">Contact · Privacy · Terms</div>
-    </div>
-  </footer>
-
-  <script>
-    // small utilities
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    function addToCart(name, price){
-      // very small demo interaction
-      const p = document.createElement('div');
-      p.textContent = `${name} added — ₹${price}`;
-      p.style.position = 'fixed';
-      p.style.right = '18px';
-      p.style.bottom = '18px';
-      p.style.background = 'white';
-      p.style.padding = '12px 14px';
-      p.style.borderRadius = '12px';
-      p.style.boxShadow = '0 8px 30px rgba(2,6,23,0.12)';
-      document.body.appendChild(p);
-      setTimeout(()=> p.remove(),2500);
-    }
-
-    function subscribe(e){
-      e.preventDefault();
-      const email = document.getElementById('email').value;
-      alert('Thanks! ' + email + ' — You\'re on the list.');
-      e.target.reset();
-    }
-
-    // mobile menu toggle (simple)
-    const menuBtn = document.getElementById('menuBtn');
-    menuBtn && menuBtn.addEventListener('click', ()=>{
-      const nav = document.querySelector('nav ul');
-      if(!nav) return;
-      nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-      nav.style.flexDirection = 'column';
-      nav.style.position = 'absolute';
-      nav.style.right = '20px';
-      nav.style.top = '64px';
-      nav.style.background = '#fff';
-      nav.style.padding = '12px';
-      nav.style.borderRadius = '10px';
-      nav.style.boxShadow = '0 12px 40px rgba(2,6,23,0.08)';
-    });
-  </script>
 </body>
 </html>
